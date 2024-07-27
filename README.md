@@ -34,14 +34,16 @@ Install the necessary libraries specified in the requirements.txt file.
 ```
 pip install -r requirements.txt
 ```
-
-
+If you encounter PowerShell permission issues on Windows, use:
+```
+.\venv\Scripts\python.exe -m pip install -r requirements.txt
+```
 
 
 ## Creating a Scrapy Project
 Scrapy helps you create a structured web scraping project.
 
-5. Start Scrapy Project
+### 5. Start Scrapy Project
 Start a new Scrapy project with the name fire_incidents.
 ```
 scrapy startproject fire_incidents
@@ -64,17 +66,21 @@ cd fire_incidents
 scrapy genspider incident_reports fireandemergency.nz/incidents-and-news/incident-reports
 ```
 
+#### Check the robots.txt of the website to ensure you are allowed to crawl it:
+- https://fireandemergency.nz/robots.txt
 
-- Check the robots.txt of the website to ensure you are allowed to crawl it:
-
-https://fireandemergency.nz/robots.txt
 
 
 
 ## Running the Crawler
 The spider class will crawl the web, extract fire incident report data, and save it to a CSV file.
 
-### 7. Crawl the Webpage
+### 7. Run Combine
+The run combine first executes the Main_1_ScrapyRunner.py, followed by Main_2_AnalyzeData.py
+```
+python Main_3_Combine.py
+```
+### 7b. Crawl the Webpage
 Run the spider to extract data and save it into a CSV file in the data folder.
 
 ```
@@ -82,12 +88,8 @@ cd path/to/your/root/directory
 python Main_1_ScrapyRunner.py
 ```
 
-
-## Performing the Analysis
-Combine and analyze the collected data to answer specific questions.
-
-8. Perform the Analysis
-This script combines all CSV files starting with day_of_week_incident_reports into a DataFrame and performs the analysis to answer the following questions:
+### 7c. Perform the Analysis
+This script retrieves and analysis the latest day_of_week_incident_reports CSV file to answer the following questions:
 
 - How many incidents has the Stratford Brigade responded to in the last 7 days?
 - How many medical incidents have been reported in the Central Region in the last 7 days?
@@ -98,8 +100,7 @@ Run the analysis script:
 python Main_2_AnalyzeData.py
 ```
 
-
-## Conclusion
+## 8. Conclusion
 By following the steps outlined in this README, you will be able to set up your environment, create and run a Scrapy project, and analyze fire incident report data effectively. This guide ensures that new users can easily make use of the provided Scrapy code.
 
 
