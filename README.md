@@ -7,27 +7,33 @@ This guide walks you through setting up a virtual environment, creating a Scrapy
 ### 1. Create a Virtual Environment
 Create a virtual environment to manage your project's dependencies.
 ```
-python -m venv venv```
+python -m venv venv
+```
 
 ### 2. Activate the Virtual Environment
 Activate the virtual environment to use the installed packages.
 
 - On Windows:
 ```
-.\venv\Scripts\activate```
+.\venv\Scripts\activate
+```
 
 - On Unix or MacOS:
 ```
-source venv/bin/activate```
+source venv/bin/activate
+```
 
 ### 3. Upgrade pip to the latest version.
-```python -m pip install --upgrade pip```
+```
+python -m pip install --upgrade pip
+```
 
 ### 4. Install Required Libraries
 Install the necessary libraries specified in the requirements.txt file.
 
 ```
-pip install -r requirements.txt```
+pip install -r requirements.txt
+```
 
 
 
@@ -37,9 +43,13 @@ Scrapy helps you create a structured web scraping project.
 
 5. Start Scrapy Project
 Start a new Scrapy project with the name fire_incidents.
-```scrapy startproject fire_incidents```
+```
+scrapy startproject fire_incidents
+```
 If you encounter PowerShell permission issues on Windows, use:
-```.\venv\Scripts\python.exe -m scrapy startproject fire_incidents```
+```
+.\venv\Scripts\python.exe -m scrapy startproject fire_incidents
+```
 
 
 
@@ -49,8 +59,10 @@ The crawler retrieves information from the website using XPath expressions.
 ### 6. Create a Spider
 Create a spider to crawl the web page.
 
-```cd fire_incidents
-scrapy genspider incident_reports fireandemergency.nz/incidents-and-news/incident-reports```
+```
+cd fire_incidents
+scrapy genspider incident_reports fireandemergency.nz/incidents-and-news/incident-reports
+```
 
 
 - Check the robots.txt of the website to ensure you are allowed to crawl it:
@@ -65,8 +77,10 @@ The spider class will crawl the web, extract fire incident report data, and save
 ### 7. Crawl the Webpage
 Run the spider to extract data and save it into a CSV file in the data folder.
 
-```cd path/to/your/root/directory
-python Main_1_ScrapyRunner.py```
+```
+cd path/to/your/root/directory
+python Main_1_ScrapyRunner.py
+```
 
 
 ## Performing the Analysis
@@ -80,7 +94,9 @@ This script combines all CSV files starting with day_of_week_incident_reports in
 - Where were the medical incidents reported in the last 7 days?
 Run the analysis script:
 
-```python Main_2_AnalyzeData.py```
+```
+python Main_2_AnalyzeData.py
+```
 
 
 ## Conclusion
