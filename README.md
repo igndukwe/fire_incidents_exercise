@@ -57,6 +57,11 @@ If you encounter PowerShell permission issues on Windows, use:
 
 ## Creating the Crawler Class
 The crawler retrieves information from the website using XPath expressions.
+- XPath is an XML Path Language used to navigate and select nodes from XML documents.
+- Testing XPath on the fly, run the following command to open the scrapy shell:
+scrapy shell
+r = scrapy.Request(url="https://fireandemergency.nz/incidents-and-news/incident-reports/")
+fetch(r)
 
 ### 6. Create a Spider
 Create a spider to crawl the web page.
@@ -74,6 +79,8 @@ scrapy genspider incident_reports fireandemergency.nz/incidents-and-news/inciden
 
 ## Running the Crawler
 The spider class will crawl the web, extract fire incident report data, and save it to a CSV file.
+The command syntax used to execute the spider to crawl the webpage is
+- scrapy crawl <spider_name> <url_without_the_https_and_forward_slash> [-o <file_name>]
 
 ### 7. Run Combine
 The run combine first executes the Main_1_ScrapyRunner.py, followed by Main_2_AnalyzeData.py
