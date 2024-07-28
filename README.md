@@ -59,9 +59,21 @@ If you encounter PowerShell permission issues on Windows, use:
 The crawler retrieves information from the website using XPath expressions.
 - XPath is an XML Path Language used to navigate and select nodes from XML documents.
 - Testing XPath on the fly, run the following command to open the scrapy shell:
+
+### Explanation of the Logic
 scrapy shell
-r = scrapy.Request(url="https://fireandemergency.nz/incidents-and-news/incident-reports/")
-fetch(r)
+- Fetch the page
+>>> r = scrapy.Request(url="https://fireandemergency.nz/incidents-and-news/incident-reports/")
+>>> fetch(r)
+- Get the h3 Central
+>>> on_central_div = response.xpath("//div[@class='incidentreport__region'][h3[text()='Central']]")
+>>> on_central_div
+- Get one of the 1st list element
+>>> li = region_central_div.xpath(".//ul[@class='incidentreport__region__list']/li/a")[0]
+- extract the href from the 1st list element
+>>> li.xpath("@href").get() 
+- extract the text from the 1st list element
+>>> li.xpath("text()").get().strip()
 
 ### 6. Create a Spider
 Create a spider to crawl the web page.
