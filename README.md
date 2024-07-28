@@ -77,6 +77,7 @@ The spider class will crawl the web, extract fire incident report data, and save
 
 ### 7. Run Combine
 The run combine first executes the Main_1_ScrapyRunner.py, followed by Main_2_AnalyzeData.py
+
 ```
 python Main_3_Combine.py
 ```
